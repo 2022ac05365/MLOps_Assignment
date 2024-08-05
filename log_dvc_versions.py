@@ -1,5 +1,6 @@
 import subprocess
 
+
 def log_dvc_versions():
     result = subprocess.run(["dvc", "repro"], capture_output=True, text=True)
     with open("dvc_logs.md", "w") as f:
@@ -12,6 +13,7 @@ def log_dvc_versions():
         f.write("## DVC Log\n")
         f.write(result.stdout)
         f.write("\n")
+
 
 if __name__ == "__main__":
     log_dvc_versions()
