@@ -1,0 +1,14 @@
+stages:
+  save_dataset:
+    cmd: python mlflow_main.py
+    deps:
+      - mlflow_main.py
+    outs:
+      - data/iris.csv
+  train_model:
+    cmd: python mlflow_main.py
+    deps:
+      - data/iris.csv
+      - mlflow_main.py
+    outs:
+      - model.joblib

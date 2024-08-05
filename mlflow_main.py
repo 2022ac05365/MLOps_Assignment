@@ -30,10 +30,16 @@ def train_and_log_model(params):
     mlflow.log_metric("accuracy", accuracy)
     mlflow.sklearn.log_model(model, "model")
 
+    with open("mlflow_logs.md", "a") as f:
+        f.write(f"## Run with params: {params}\n")
+        f.write(f"- Accuracy: {accuracy}\n")
+        f.write("\n")
+
     print("Model trained and logged with accuracy:", accuracy)
 
 if __name__ == "__main__":
     save_iris_dataset()
     mlflow.set_experiment("Iris_Classification")
-    with mlflow.start_run():
-        train_and_log_model({"n_estimators": 100, "max_depth": 3})
+    for params in [{"n_estimators": 100, "max_depth": 3}, {"n_estimators": 200, "max_depth": 5}]:
+        with mlflow.start_run():
+            train_and_log_model(params)
