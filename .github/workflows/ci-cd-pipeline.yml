@@ -34,9 +34,13 @@ jobs:
           pip install pytest
           pytest
 
-      - name: Train model
+      - name: Train and log model with MLflow
         run: |
-          python model.py
+          python mlflow_main.py
+
+      - name: Log DVC versions
+        run: |
+          python log_dvc_versions.py
 
       - name: Build Docker image
         run: |
@@ -53,3 +57,11 @@ jobs:
         run: |
           docker tag mlops-assignment ${{ secrets.DOCKER_USERNAME }}/mlops-assignment
           docker push ${{ secrets.DOCKER_USERNAME }}/mlops-assignment
+
+      - name: Upload logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: mlflow-dvc-logs
+          path: |
+            mlflow_logs.md
+            dvc_logs.md
