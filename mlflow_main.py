@@ -1,10 +1,10 @@
 import os
-import mlflow
-import mlflow.sklearn
-import pandas as pd
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+import mlflow # type: ignore
+import mlflow.sklearn # type: ignore
+import pandas as pd # type: ignore
+from sklearn.datasets import load_iris # type: ignore
+from sklearn.model_selection import train_test_split # type: ignore
+from sklearn.ensemble import RandomForestClassifier # type: ignore
 
 
 def save_iris_dataset():
@@ -39,6 +39,7 @@ def train_and_log_model(params):
         f.write("\n")
 
     print("Model trained and logged with accuracy:", accuracy)
+
 
 
 if __name__ == "__main__":

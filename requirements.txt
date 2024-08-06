@@ -1,4 +1,8 @@
-scikit-learn
-joblib
+# scikit-learn
+# joblib
 dvc
 mlflow
+
+Flask==2.0.2
+joblib==1.1.0
+scikit-learn==0.24.2

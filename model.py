@@ -1,7 +1,7 @@
-import joblib
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+import joblib # type: ignore
+from sklearn.datasets import load_iris # type: ignore
+from sklearn.model_selection import train_test_split # type: ignore
+from sklearn.ensemble import RandomForestClassifier # type: ignore
 
 
 def train_model():
