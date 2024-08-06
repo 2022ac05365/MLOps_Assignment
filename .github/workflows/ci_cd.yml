@@ -33,7 +33,7 @@ jobs:
         pytest tests/
     
     - name: Train model
-      run: python src/train.py
+      run: python src/train_m1.py
     
     - name: Archive model
       uses: actions/upload-artifact@v2

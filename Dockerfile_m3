@@ -1,0 +1,12 @@
+# Dockerfile
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY models/iris_model_tuned.joblib models/
+COPY app.py .
+
+CMD ["python", "app.py"]
