@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/balasriharshach/BITS-2.1/MLOps/Assignment_1/MLOps_Assignment/mlruns/927002243114902395/a4d5a750529747c79d626f022c92b1ff/artifacts
+end_time: 1722930602121
+entry_point_name: ''
+experiment_id: '927002243114902395'
+lifecycle_stage: active
+run_id: a4d5a750529747c79d626f022c92b1ff
+run_name: defiant-shrimp-156
+run_uuid: a4d5a750529747c79d626f022c92b1ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722930600602
+status: 3
+tags: []
+user_id: balasriharshach

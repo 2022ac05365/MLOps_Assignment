@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/balasriharshach/BITS-2.1/MLOps/Assignment_1/MLOps_Assignment/mlruns/412487912728529665/41dd2b25942d45fa9d7df9a4b99602b9/artifacts
+end_time: 1722930986422
+entry_point_name: ''
+experiment_id: '412487912728529665'
+lifecycle_stage: active
+run_id: 41dd2b25942d45fa9d7df9a4b99602b9
+run_name: big-sponge-110
+run_uuid: 41dd2b25942d45fa9d7df9a4b99602b9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722930983295
+status: 3
+tags: []
+user_id: balasriharshach

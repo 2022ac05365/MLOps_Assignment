@@ -1,0 +1,6 @@
+artifact_location: file:///Users/balasriharshach/BITS-2.1/MLOps/Assignment_1/MLOps_Assignment/mlruns/927002243114902395
+creation_time: 1722930597293
+experiment_id: '927002243114902395'
+last_update_time: 1722930597293
+lifecycle_stage: active
+name: iris_classification

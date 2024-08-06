@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/balasriharshach/BITS-2.1/MLOps/Assignment_1/MLOps_Assignment/mlruns/927002243114902395/444dc115462c480a8e42ae874ae72f2c/artifacts
+end_time: 1722930600598
+entry_point_name: ''
+experiment_id: '927002243114902395'
+lifecycle_stage: active
+run_id: 444dc115462c480a8e42ae874ae72f2c
+run_name: learned-fly-601
+run_uuid: 444dc115462c480a8e42ae874ae72f2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722930597966
+status: 3
+tags: []
+user_id: balasriharshach
