@@ -4,6 +4,6 @@
 *.log
 *.out
 .gitignore
-.dvc*
+!.dvc
 mlruns
 *.csv.dvc
