@@ -3,10 +3,13 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
+# Install gcc and other build-essential tools
+RUN apt-get update && apt-get install -y gcc build-essential
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY models/iris_model_tuned.joblib models/
+COPY models/iris_model.joblib models/
 COPY app.py .
 
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
