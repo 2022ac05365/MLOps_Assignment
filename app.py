@@ -1,38 +1,54 @@
 from flask import Flask, request, jsonify
 import joblib
-import numpy as np
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
+MODEL_PATH = 'models/iris_model.joblib'
 
-@app.route('/')
-def home():
-    return ("Welcome to the Iris Prediction API. "
-            "Send a POST request to /predict "
-            "with features to get a prediction.")
+# Load the model
+try:
+    model = joblib.load(MODEL_PATH)
+except Exception as e:
+    model = None
+    print(f"Error loading model: {e}")
+
+# Flower names mapping
+flower_names = {
+    0: 'Iris-setosa',
+    1: 'Iris-versicolor',
+    2: 'Iris-virginica'
+}
+
+# Feature explanations
+feature_explanations = [
+    "Sepal length in cm",
+    "Sepal width in cm",
+    "Petal length in cm",
+    "Petal width in cm"
+]
 
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
-    if not data or 'features' not in data:
-        return jsonify(
-            {
-                'error': 'Please provide features in the request body'
-            }
-        ), 400
-    try:
-        model = joblib.load('models/iris_model_tuned.joblib')
-    except Exception as e:
-        app.logger.error(f"Failed to load model: {str(e)}")
+    if model is None:
         return jsonify({'error': 'Model loading failed'}), 500
-    features = np.array(data['features']).reshape(1, -1)
-    prediction = model.predict(features)
-    return jsonify({'prediction': int(prediction[0])})
+
+    data = request.get_json(force=True)
+    features = data['features']
+    prediction = model.predict([features])[0]
+    flower_name = flower_names[int(prediction)]
+    response = {
+        'prediction': int(prediction),
+        'flower_name': flower_name,
+        'features': [
+            {'value': features[0], 'description': feature_explanations[0]},
+            {'value': features[1], 'description': feature_explanations[1]},
+            {'value': features[2], 'description': feature_explanations[2]},
+            {'value': features[3], 'description': feature_explanations[3]},
+        ]
+    }
+    return jsonify(response)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001)
