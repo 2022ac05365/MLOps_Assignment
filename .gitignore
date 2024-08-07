@@ -6,4 +6,3 @@
 .gitignore
 !.dvc
 mlruns
-*.csv.dvc

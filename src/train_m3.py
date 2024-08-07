@@ -31,7 +31,7 @@ def objective(trial):
 
 
 def train_model():
-    mlflow.set_experiment("iris_classification_tuned")
+    mlflow.set_experiment("iris_classification")
 
     study = optuna.create_study(direction='maximize')
     study.optimize(objective, n_trials=100)
@@ -51,7 +51,7 @@ def train_model():
         best_model.fit(X_train, y_train)
 
         mlflow.sklearn.log_model(best_model, "model")
-        joblib.dump(best_model, 'models/iris_model_tuned.joblib')
+        joblib.dump(best_model, 'models/iris_model.joblib')
 
         print(f"Best parameters: {best_params}")
         print(f"Best accuracy: {best_value}")
